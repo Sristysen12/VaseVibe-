@@ -241,6 +241,177 @@
         </div>
       </section>
       <!--review section -->
+      <section class="review" id="review">
+        <h1 class="heading">customer's <span>review</span></h1>
+        <div class="box-container">
+          <div class="box">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+              consectetur nesciunt tempora!
+            </p>
+            <div class="user">
+              <img src="image file/human 1.jpg" alt="" srcset="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <span>happy customer</span>
+              </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+          </div>
+
+
+          <div class="box-conta">
+          <div class="box">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+          
+            </div>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+              consectetur nesciunt tempora!
+            </p>
+            <div class="user">
+              <img src="image file/human 3.jpg" alt="" srcset="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <span>happy customer</span>
+              </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+          </div>
+
+          <div class="box-conta">
+          <div class="box">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+              consectetur nesciunt tempora!
+            </p>
+            <div class="user">
+              <img src="image file/human 4.jpg" alt="" srcset="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <span>happy customer</span>
+              </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+          </div>
+        </div>
+      </section>
     </section>
+    <!--contact section-->
+    <section>
+      <div class="contact" id="contact">
+        <div class="heading"><h3>contact <span>us</span></h3></div>
+        <div class="row">
+          <form action="">
+            <input type="text" placeholder="name" class="box">
+            <input type="email" placeholder="email" class="box">
+            <input type="number" placeholder="number" id="" class="box">
+            <textarea name="" id="" cols="30" rows="10" class="box" placeholder="message"></textarea>
+            <input type="submit" value="send message" class="btn">
+          </form>
+       
+        <div class="image">
+          <img src="image file/hom.png" alt="" srcset="">
+        </div>
+      </div>
+     </div>
+     <!--Footer section-->
+     <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>Quick links</h3>
+          <a href="#">home</a>
+          <a href="#">about us</a>
+          <a href="#">products</a>
+          <a href="#">review</a>
+          <a href="#">connect us</a>
+        </div>
+          <div class="box">
+          <h3>extra links</h3>
+          <a href="#">my account</a>
+          <a href="#">my order </a>
+          <a href="#">my favourite</a>
+        </div>
+        <div class="box">
+          <h3>locations</h3>
+          <a href="#">USA</a>
+          <a href="#">India</a>
+          <a href="#">France</a>
+          <a href="#">Japan</a>
+        </div>
+        <div class="box">
+          <h3>contact info</h3>
+          <a href="#">+91-92065-9875</a>
+          <a href="#">VaseVibe22@gmail.com</a>
+          <a href="#">mumbai, india - 400104</a>
+          <a href="#"><img src="image file/Credit.jpg" alt="" width="100%"></a>
+        </div>
+      </div>
+      <div class="credit">Made with ❤️ by <span>VaseVibe</span>| all rights reserved</div>
+     </section>
+
+
+
+     <script>
+// 1. Add to Cart Functionality
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+document.querySelectorAll(".cart-btn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    const box = btn.closest(".box");
+    const title = box.querySelector("h3").innerText;
+    const price = box.querySelector(".price").innerText;
+    const imgSrc = box.querySelector("img").src;
+
+    const item = { title, price, imgSrc };
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`✅ "${title}" added to cart!`);
+  });
+});
+
+// 2. Contact Form Submission (Store in localStorage)
+const contactForm = document.querySelector(".contact form");
+if(contactForm){
+  contactForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = this.querySelector('input[placeholder="name"]').value;
+    const email = this.querySelector('input[placeholder="email"]').value;
+    const number = this.querySelector('input[placeholder="number"]').value;
+    const message = this.querySelector('textarea').value;
+
+    const contactData = { name, email, number, message };
+    console.log("📩 Contact Form Submitted:", contactData);
+
+    // Save to localStorage (simulate backend)
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.push(contactData);
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Thanks for contacting us! 🌸");
+    this.reset();
+  });
+}
+</script>
+
   </body>
 </html>
